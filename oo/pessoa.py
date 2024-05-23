@@ -9,9 +9,16 @@ class Pessoa():
     def cumprimentar(self):
         return "Olá"
     
+class Homem(Pessoa):
+    pass
+
+class Mutante(Pessoa):
+    olhos = 4
+
+    
 if __name__ == '__main__':
-    lucas = Pessoa(nome='Lucas')
-    julio = Pessoa(lucas, nome='Julio')
+    lucas = Mutante(nome='Lucas')
+    julio = Homem(lucas, nome='Julio')
     print(Pessoa.cumprimentar(lucas))
     print(id(julio))
     print(lucas.cumprimentar())
@@ -28,4 +35,5 @@ if __name__ == '__main__':
     Pessoa.olhos = 3
     print(Pessoa.olhos)
     print(julio.olhos)
+    print(lucas.olhos)
     

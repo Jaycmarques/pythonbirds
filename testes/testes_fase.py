@@ -111,6 +111,7 @@ class FaseTestes(TestCase):
         fase.adicionar_porco(*porcos)
         fase.adicionar_passaro(*passaros)
 
+     
         self.assertEqual(EM_ANDAMENTO, fase.status())
 
         for ator in porcos + passaros:

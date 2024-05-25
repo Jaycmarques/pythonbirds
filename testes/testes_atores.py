@@ -204,7 +204,7 @@ class PassaroVermelhoTests(PassaroBaseTests):
 
 
     def teste_velocidade_escalar(self):
-        self.assertEqual(20, PassaroVermelho.velocidade_escalar)
+        self.assertEqual(20, PassaroVermelho.velocidade_escalar_padrao)
 
 
     def teste_foi_lancado(self):

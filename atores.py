@@ -66,6 +66,7 @@ class Obstaculo(Ator):
 
 class Porco(Ator):
     _caracter_ativo = '@'
+    _caracter_destruido = '+'
 
 
 class DuploLancamentoExcecao(Exception):
@@ -73,9 +74,10 @@ class DuploLancamentoExcecao(Exception):
 
 
 class Passaro(Ator):
-    velocidade_escalar = 10
+    velocidade_escalar_padrao = 10
+    # velocidade_escalar = velocidade_escalar_padrao
 
-    def __init__(self, x=0, y=0):
+    def __init__(self, x=0, y=0, velocidade_escalar = None):
         """
         Método de inicialização de pássaro.
 
@@ -85,7 +87,13 @@ class Passaro(Ator):
         :param x:
         :param y:
         """
+        
         super().__init__(x, y)
+        # if velocidade_escalar is None:
+        #     self.velocidade_escalar = self.__class__.velocidade_escalar
+        # else:
+        #     self.velocidade_escalar = velocidade_escalar
+        self.velocidade_escalar = velocidade_escalar
         self._x_inicial = x
         self._y_inicial = y
         self._tempo_de_lancamento = None
@@ -93,11 +101,11 @@ class Passaro(Ator):
 
     def foi_lancado(self):
         """
-        Método que retorna verdaeira se o pássaro já foi lançado e falso caso contrário
+        Método que retorna verdadeira se o pássaro já foi lançado e falso caso contrário
 
         :return: booleano
         """
-        return True
+        pass
 
     def colidir_com_chao(self):
         """
@@ -105,7 +113,10 @@ class Passaro(Ator):
         o status dos Passaro deve ser alterado para destruido, bem como o seu caracter
 
         """
-        pass
+        if self.y <= 0:
+            self.status = DESTRUIDO
+            return self.status
+        
 
     def calcular_posicao(self, tempo):
         """
@@ -138,7 +149,11 @@ class Passaro(Ator):
 
 class PassaroAmarelo(Passaro):
     _caracter_ativo = 'A'
-
+    
 
 class PassaroVermelho(Passaro):
     _caracter_ativo = 'V'
+    _caracter_destruido = 'v'
+    velocidade_escalar = 20
+    # def __init__(self, x=0, y=0, velocidade_escalar=None):
+    #     super().__init__(x, y, velocidade_escalar)

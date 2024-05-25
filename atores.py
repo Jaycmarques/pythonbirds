@@ -93,7 +93,7 @@ class Passaro(Ator):
         #     self.velocidade_escalar = self.__class__.velocidade_escalar
         # else:
         #     self.velocidade_escalar = velocidade_escalar
-        self.velocidade_escalar = velocidade_escalar
+        # self.velocidade_escalar = velocidade_escalar
         self._x_inicial = x
         self._y_inicial = y
         self._tempo_de_lancamento = None
@@ -105,7 +105,7 @@ class Passaro(Ator):
 
         :return: booleano
         """
-        pass
+        return self._tempo_de_lancamento is not None
 
     def colidir_com_chao(self):
         """
@@ -144,7 +144,8 @@ class Passaro(Ator):
         :param tempo_de_lancamento:
         :return:
         """
-        pass
+        self._angulo_de_lancamento = angulo
+        self._tempo_de_lancamento = tempo_de_lancamento
 
 
 class PassaroAmarelo(Passaro):
@@ -154,6 +155,6 @@ class PassaroAmarelo(Passaro):
 class PassaroVermelho(Passaro):
     _caracter_ativo = 'V'
     _caracter_destruido = 'v'
-    velocidade_escalar = 20
+    velocidade_escalar_padrao = 20
     # def __init__(self, x=0, y=0, velocidade_escalar=None):
     #     super().__init__(x, y, velocidade_escalar)

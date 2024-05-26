@@ -135,8 +135,8 @@ def rodar_fase(fase):
     stage = Canvas(root, width=800, height=ALTURA_DA_TELA)
 
     multiplicador = 10
-    PassaroAmarelo.velocidade_escalar *= multiplicador
-    PassaroVermelho.velocidade_escalar *= multiplicador
+    PassaroAmarelo.velocidade_escalar_padrao *= multiplicador
+    PassaroVermelho.velocidade_escalar_padrao *= multiplicador
     atores.GRAVIDADE = 100
     animar(root, stage, fase)
 
